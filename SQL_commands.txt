@@ -1,0 +1,97 @@
+SELECT
+
+SELECT CustomerName,City FROM Customers;
+
+Seleziona/cerca i Costumername e cittá presenti nella tabella Customers
+
+
+####################################################################################################################################
+
+SELECT DISTINCT
+
+SELECT DISTINCT City FROM Customers;
+ 
+in pratica non fa vedere i doppi
+se nella tabella una città si ripete due o + volte, lui te la fa vedere solo una volta nell'elenco ottenuto
+
+####################################################################################################################################
+
+WHERE
+
+SELECT * FROM Customers
+WHERE Country='Mexico';
+
+Trova tutti i risultati della tabella Customer che hanno come cittá Mexico
+
+
+####################################################################################################################################
+
+AND & OR
+
+SELECT * FROM Customers
+WHERE Country='Germany'
+AND City='Berlin';
+
+Trova tutti i risultati della tabella Customer che hanno come Country Germany E come cittá Berlino
+
+
+SELECT * FROM Customers
+WHERE City='Berlin'
+OR City='München';
+
+Trova tutti i risultati della tabella Customer che hanno come cittá Berlino O Monaco
+
+
+SELECT * FROM Customers
+WHERE Country='Germany'
+AND (City='Berlin' OR City='München');
+
+Seleziona tutti i customers che hanno come country "Germany" E come cittá "Berlin" O "München", nella tabella "Customers"
+
+
+####################################################################################################################################
+
+ORDER BY
+
+SELECT * FROM Customers
+ORDER BY Country;
+
+seleziona tutti i customers dalla tabella "Customers" e li ordina in modo alfabetico secondo la colonna "Country"
+
+
+ORDER BY ....  DESC
+
+SELECT * FROM Customers
+ORDER BY Country DESC;
+
+prodecimento inverso, ordina in modo decrescente
+
+
+ORDER BY consecutivi
+
+SELECT * FROM Customers
+ORDER BY Country,CustomerName;
+
+seleziona tutti i Costumer dalla tabella "costumers" e li ordina in modo alfabetico secondo il "Country" e "CustomerName"
+
+
+####################################################################################################################################
+
+INSERT INTO
+
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal','Tom B. Erichsen','Skagen 21','Stavanger','4006','Norway');
+
+Inserisce dati nella tabella "Customers", quindi aggiunge i valori 'Cardinal','Tom B. Erichsen','Skagen 21','Stavanger','4006','Norway'
+che corrispondono alle rispettive colonne 'CustomerName, ContactName, Address, City, PostalCode, Country'
+
+Si può fare anche in maniere parziale, ovvero lasciare vuoto qualche campo(colonna)
+
+INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');
+
+
+####################################################################################################################################
+
+UPDATE
+
