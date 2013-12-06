@@ -1,3 +1,6 @@
+http://www.w3schools.com/sql/sql_intro.asp
+
+
 SELECT
 
 SELECT CustomerName,City FROM Customers;
@@ -129,5 +132,113 @@ DELETE * FROM table_name;
 It is possible to delete all rows in a table without deleting the table. This means that the table structure, attributes, and indexes will be intact.
 
 
+----------------------------------------------------------------------ADVANCED------------------------------------------------------------------
+
+
+SELECT TOP
+
+SELECT TOP 2 * FROM Customers;
+
+Seleziona le prime due righe dalla tabella "Customers"
+
+
+SELECT TOP PERCENT
+
+SELECT TOP 50 PERCENT * FROM Customers;
+
+Seleziona la prima metà (50%) dei risultati della tabella "Customers"
+
+
 ####################################################################################################################################
 
+LIKE
+
+SELECT * FROM Customers
+WHERE City LIKE 's%';
+Seleziona tutti i costumers la cui città inizia con la lattera "s"
+
+SELECT * FROM Customers
+WHERE City LIKE '%s';
+Seleziona tutti i costumers la cui città finisce con la lattera "s"
+
+SELECT * FROM Customers
+WHERE Country LIKE '%land%';
+Seleziona tutti i costumers in cui il nome del Paese contiene i caratteri "land", esempio: Ireland
+
+SELECT * FROM Customers
+WHERE Country NOT LIKE '%land%';
+Procedimento inverso, seleziona tutti i clienti il cui paese non contiene le lettere "land", es: Mexico
+
+
+####################################################################################################################################
+
+WILDCARD
+
+Sono caratteri speciali che sostituiscono altri caratteri in una stringa
+
+http://www.w3schools.com/sql/sql_wildcards.asp
+
+%	A substitute for zero or more characters
+_	A substitute for a single character
+[charlist]	Sets and ranges of characters to match
+[^charlist]
+or
+[!charlist]	Matches only a character NOT specified within the brackets
+
+
+####################################################################################################################################
+
+IN
+
+SELECT * FROM Customers
+WHERE City IN ('Paris','London');
+
+Permette di specificare più valori quando si usa il WHERE
+Seleziona tutti i customers nella tabella City che vivono solo a "Paris" o "London":
+
+
+####################################################################################################################################
+
+BETWEEN
+
+http://www.w3schools.com/sql/sql_between.asp
+
+
+Seleziona un range di valori
+
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+Seleziona tutti i prodotti con un prezzo tra 10 e 20
+
+NOT BETWEEN
+
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;
+Seleziona tutti i prodotti al di fuori del range 10 e 20, quindi tutti i valori < 10 e > 20
+
+
+####################################################################################################################################
+
+Aliases
+
+http://www.w3schools.com/sql/sql_alias.asp
+
+Gli alias vengono usati per dare un nome temporaneo ad una taballa o il titolo di una colonna
+
+SELECT column_name AS alias_name
+FROM table_name;
+
+SELECT column_name(s)
+FROM table_name AS alias_name;
+
+
+####################################################################################################################################
+
+JOIN
+
+Viene usato per combinare righe da due o più tabelle
+
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers
+ON Orders.CustomerID=Customers.CustomerID;
